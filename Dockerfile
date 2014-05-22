@@ -6,6 +6,8 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     python \
     build-essential \
+    software-properties-common \
+    libssl-dev \
     make \
     gcc \
     python-dev \
