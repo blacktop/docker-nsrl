@@ -1,31 +1,31 @@
 FROM debian:jessie
 MAINTAINER blacktop, https://github.com/blacktop
 
-RUN apt-get update && apt-get install -y \
-    git \
-    libxml2-dev \
-    python \
-    build-essential \
-    software-properties-common \
-    libssl-dev \
-    make \
-    gcc \
-    python-dev \
-    python-pip
-
-ADD /nsrl_bloom.py /nsrl/nsrl_bloom.py
+RUN apt-get update && apt-get install -y software-properties-common \
+                                          build-essential \
+                                          libxml2-dev \
+                                          python-pip \
+                                          python-dev \
+                                          libssl-dev \
+                                          python \
+                                          make \
+                                          git \
+                                          gcc
+RUN pip install pybloomfiltermmap
 
 # Grab NSRL Reduced Sets
 ADD http://www.nsrl.nist.gov/RDS/rds_2.44/rds_244m.zip /nsrl/NSRLFile.txt
 
-RUN pip install --upgrade pybloomfiltermmap click
-RUN python /nsrl/nsrl_bloom.py build
+# Add scripts
+ADD /scripts /nsrl/
 
-# Clean files to reduce images size
-RUN apt-get autoclean
-RUN apt-get autoremove
-RUN rm -f /var/lib/apt/lists/archive*
+# Build bloomfilter from NSRL Database
+RUN python /nsrl/build.py
 
-ENTRYPOINT ["python nsrl_bloom.py search]
+# Try to reduce size of container.
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN rm -f /nsrl/NSRLFile.txt
 
-CMD ["--help"]
+ENTRYPOINT ["python /nsrl/search.py]
+
+CMD ["-h"]
