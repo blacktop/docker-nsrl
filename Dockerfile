@@ -1,16 +1,18 @@
 FROM debian:jessie
 MAINTAINER blacktop, https://github.com/blacktop
 
-RUN apt-get update && apt-get install -y software-properties-common \
-                                          build-essential \
-                                          libxml2-dev \
-                                          python-pip \
-                                          python-dev \
-                                          libssl-dev \
-                                          python \
-                                          make \
-                                          git \
-                                          gcc
+RUN apt-get update && apt-get install -y \
+                software-properties-common \
+                build-essential \
+                libxml2-dev \
+                python-pip \
+                python-dev \
+                libssl-dev \
+                python \
+                make \
+                git \
+                gcc
+
 RUN pip install pybloomfiltermmap
 
 # Grab NSRL Reduced Sets
