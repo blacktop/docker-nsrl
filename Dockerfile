@@ -28,6 +28,6 @@ RUN python /nsrl/build.py
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN rm -f /nsrl/NSRLFile.txt
 
-ENTRYPOINT ["python /nsrl/search.py]
+ENTRYPOINT ["python /nsrl/search.py"]
 
 CMD ["-h"]
