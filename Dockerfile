@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
 RUN pip install pybloomfiltermmap
 
 # Grab NSRL Reduced Sets
-#ADD http://www.nsrl.nist.gov/RDS/rds_2.44/rds_244m.zip /nsrl/NSRLFile.txt
+ADD http://www.nsrl.nist.gov/RDS/rds_2.44/rds_244m.zip /nsrl/NSRLFile.txt
 
 # Add scripts
 ADD /scripts /nsrl/
