@@ -28,9 +28,9 @@ def main():
     for hash in args.hash:
         if args.verbose:
             if hash in bf:
-                print "Hash: {} found in NSRL Database.".format(hash)
+                print "Hash {} found in NSRL Database.".format(hash)
             else:
-                print "Hash: {} was NOT found in NSRL Database.".format(hash)
+                print "Hash {} was NOT found in NSRL Database.".format(hash)
         else:
             print hash in bf
 

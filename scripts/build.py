@@ -17,12 +17,10 @@ import os
 from pybloomfilter import BloomFilter
 
 error_rate = 0.01
-nsrl_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', 'nsrl/NSRLFile.txt')
 
-
-if os.path.isfile(nsrl_path):
+if os.path.isfile('/nsrl/NSRLFile.txt'):
     print "INFO: Reading in NSRL Database"
-    hashes = [line.split(",")[1].strip('"') for line in open(nsrl_path)]
+    hashes = [line.split(",")[1].strip('"') for line in open('/nsrl/NSRLFile.txt')]
     print "INFO: Creating bloomfilter"
     bf = BloomFilter(len(hashes), error_rate, 'nsrl.bloom')
     print "INFO: Inserting hashes into bloomfilter"
