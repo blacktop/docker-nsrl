@@ -26,7 +26,7 @@ ADD /scripts /nsrl/
 RUN python /nsrl/build.py
 # Try to reduce size of container.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-RUN rm -f /nsrl/NSRLFile.txt
+RUN rm -rf /nsrl/minimal/ && rm -f /rds_244m.zip
 
 ENTRYPOINT ["python /nsrl/search.py"]
 
