@@ -13,6 +13,7 @@ This module builds a bloomfilter from the NSRL Whitelist Database.
 """
 
 import os
+import sys
 
 from pybloomfilter import BloomFilter
 
@@ -32,3 +33,5 @@ if os.path.isfile('/nsrl/minimal/NSRLFile.txt'):
     print "Complete"
 else:
     print("ERROR: No such file or directory: '/nsrl/NSRLFile.txt'")
+
+sys.exit(1)
