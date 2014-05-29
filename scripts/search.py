@@ -33,6 +33,8 @@ def main():
                 print "Hash {} was NOT found in NSRL Database.".format(hash)
         else:
             print hash in bf
+            
+    return
 
 if __name__ == "__main__":
     try:
