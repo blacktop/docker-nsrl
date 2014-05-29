@@ -19,14 +19,29 @@ This repository contains a **Dockerfile** of the [NSRL Database](http://www.nsrl
 
 ### Usage
 
-    docker run -i -t blacktop/nsrl 60B7C0FEAD45F2066E5B805A91F4F0FC
+    docker run -i -t blacktop/nsrl
 
 #### Output:
-```bash
 
-```
+    usage: search.py [-h] [-v] MD5 [MD5 ...]
+
+    positional arguments:
+      MD5            a md5 hash to search for.
+
+    optional arguments:
+      -h, --help     show this help message and exit
+      -v, --verbose  Display verbose output message
+
+#### Example (-v):
+
+    docker run -i -t blacktop/nsrl -v 60B7C0FEAD45F2066E5B805A91F4F0FC
+
+#### Output:
+
+    Hash 60B7C0FEAD45F2066E5B805A91F4F0FC found in NSRL Database.
+
 ### Todo
 - [x] Install/Run NSRL
-- [ ] Convert NSRL to a much smaller bloom filter
-- [ ] Create python script to query NSRL bloom filter
+- [x] Convert NSRL to a much smaller bloom filter
+- [x] Create python script to query NSRL bloom filter
 - [ ] Have container take a single hash or a list of hashes
