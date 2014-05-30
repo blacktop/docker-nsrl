@@ -17,6 +17,7 @@ RUN apt-get update > /dev/null && apt-get install -yq \
 
 # Add scripts
 ADD /scripts /nsrl/
+RUN chmod 755 /nsrl/*.py
 ADD /shrink_nsrl.sh /shrink_nsrl.sh
 RUN chmod 755 /shrink_nsrl.sh
 
@@ -26,6 +27,6 @@ RUN /shrink_nsrl.sh
 # Try to reduce size of container.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ENTRYPOINT ["python /nsrl/search.py"]
+ENTRYPOINT ["/nsrl/search.py"]
 
 CMD ["-h"]
