@@ -45,3 +45,4 @@ This repository contains a **Dockerfile** of the [NSRL Database](http://www.nsrl
 - [x] Convert NSRL to a much smaller bloom filter
 - [x] Create python script to query NSRL bloom filter
 - [ ] Have container take a single hash or a list of hashes
+- [ ] Also add http://www.mandiant.com/library/RedlineWL//m-whitelist-1.0.zip
