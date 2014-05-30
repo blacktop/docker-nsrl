@@ -1,6 +1,9 @@
 FROM debian:jessie
 MAINTAINER blacktop, https://github.com/blacktop
 
+#Prevent daemon start during install
+RUN	echo '#!/bin/sh\nexit 101' > /usr/sbin/policy-rc.d && \
+    chmod +x /usr/sbin/policy-rc.d
 # Install dependencies
 RUN apt-get update && apt-get install -y \
     software-properties-common \
@@ -13,23 +16,15 @@ RUN apt-get update && apt-get install -y \
     unzip \
     make \
     git \
-    gcc
-
-RUN pip install pybloomfiltermmap
-# Grab NSRL Reduced Sets
-ADD http://www.nsrl.nist.gov/RDS/rds_2.44/rds_244m.zip /rds_244m.zip
-
-# TODO : Also add http://www.mandiant.com/library/RedlineWL//m-whitelist-1.0.zip
-
-# Unzip NSRL Database zip to /nsrl/
-RUN unzip -uo /rds_244m.zip -d /nsrl/
+    gcc && pip install pybloomfiltermmap
 # Add scripts
 ADD /scripts /nsrl/
-# Build bloomfilter from NSRL Database
-RUN python /nsrl/build.py
+ADD /shrink_nsrl.sh /shrink_nsrl.sh
+RUN chmod 755 /shrink_nsrl.sh
+# Grab NSRL Database and convert to bloomfilter
+RUN /shrink_nsrl.sh
 # Try to reduce size of container.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-RUN rm -rf /nsrl/minimal/ && rm -f /rds_244m.zip
 
 ENTRYPOINT ["python /nsrl/search.py"]
 

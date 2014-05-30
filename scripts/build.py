@@ -43,7 +43,7 @@ def main():
             print "INFO: Creating bloomfilter"
             bf = BloomFilter(num_lines, error_rate, 'nsrl.bloom')
             print "INFO: Inserting hashes into bloomfilter"
-            for index, line in enumerate(f_nsrl):
+            for line in f_nsrl:
                 md5_hash = line.split(",")[1].strip('"')
                 if md5_hash:
                     try:
