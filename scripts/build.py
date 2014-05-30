@@ -43,19 +43,14 @@ def main():
             print "INFO: Creating bloomfilter"
             bf = BloomFilter(num_lines, error_rate, 'nsrl.bloom')
             print "INFO: Inserting hashes into bloomfilter"
-            # bf.add((line.split(",")[1].strip('"') for line in f_nsrl))
-            # bf.update(bl.split('\n').split(",")[1].strip('"') for bl in blocks(f_nsrl))
             for index, line in enumerate(f_nsrl):
-                # progress = 100 * index / num_lines
-                # if progress % 10 == 0:
-                #     print "Progress: {} %".format(progress)
                 md5_hash = line.split(",")[1].strip('"')
                 if md5_hash:
                     try:
                         bf.add(md5_hash)
                     except Exception as e:
                         print "ERROR: %s" % e
-            print len(bf)
+            print "INFO: NSRL bloomfilter contains {} items.".format(len(bf))
             print "Complete"
     else:
         print("ERROR: No such file or directory: %s", nsrl_path)
