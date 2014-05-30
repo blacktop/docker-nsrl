@@ -18,6 +18,9 @@ RUN apt-get update && apt-get install -y \
 RUN pip install pybloomfiltermmap
 # Grab NSRL Reduced Sets
 ADD http://www.nsrl.nist.gov/RDS/rds_2.44/rds_244m.zip /rds_244m.zip
+
+# TODO : Also add http://www.mandiant.com/library/RedlineWL//m-whitelist-1.0.zip
+
 # Unzip NSRL Database zip to /nsrl/
 RUN unzip -uo /rds_244m.zip -d /nsrl/
 # Add scripts
