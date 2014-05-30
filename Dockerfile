@@ -9,13 +9,13 @@ RUN echo '#!/bin/sh\nexit 101' > /usr/sbin/policy-rc.d && \
 RUN apt-get update && apt-get install -y \
     software-properties-common \
     build-essential \
-    libxml2-dev \
     python-pip \
     python-dev \
     libssl-dev \
     python \
     unzip \
     make \
+    wget \
     git \
     gcc && pip install pybloomfiltermmap
 
