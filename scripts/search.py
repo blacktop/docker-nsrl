@@ -18,7 +18,7 @@ from pybloomfilter import BloomFilter
 
 
 def main():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(prog='blacktop/nsrl')
     parser.add_argument("-v", "--verbose", help="Display verbose output message", action="store_true", required=False)
     parser.add_argument('hash', metavar='MD5', type=str, nargs='+', help='a md5 hash to search for.')
     args = parser.parse_args()
@@ -33,7 +33,7 @@ def main():
                 print "Hash {} was NOT found in NSRL Database.".format(hash)
         else:
             print hash in bf
-            
+
     return
 
 if __name__ == "__main__":
