@@ -1,3 +1,4 @@
+![NSRL logo](https://raw.githubusercontent.com/blacktop/docker-nsrl/master/logo.png)
 NSRL Dockerfile
 =============
 
