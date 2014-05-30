@@ -6,7 +6,7 @@ RUN echo '#!/bin/sh\nexit 101' > /usr/sbin/policy-rc.d && \
     chmod +x /usr/sbin/policy-rc.d
 
 # Install dependencies
-RUN apt-get update && apt-get install -y \
+RUN apt-get -qq update && apt-get install -yq \
     software-properties-common \
     build-essential \
     python-pip \
