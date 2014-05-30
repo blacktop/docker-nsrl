@@ -2,7 +2,7 @@
 
 # TODO : Also add http://www.mandiant.com/library/RedlineWL//m-whitelist-1.0.zip
 # Grab NSRL Reduced Sets
-wget http://www.nsrl.nist.gov/RDS/rds_2.44/rds_244m.zip
+wget http://www.nsrl.nist.gov/RDS/rds_2.44/rds_244m.zip 2> /dev/null
 # Unzip NSRL Database zip to /nsrl/
 unzip -uo /rds_244m.zip -d /nsrl/
 rm -f /rds_244m.zip
