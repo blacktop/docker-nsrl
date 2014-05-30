@@ -18,23 +18,49 @@ import sys
 from pybloomfilter import BloomFilter
 
 error_rate = 0.01
+nsrl_path = '/nsrl/minimal/NSRLFile.txt'
+
+# http://stackoverflow.com/a/9631635
+def blocks(this_file, size=65536):
+    while True:
+        b = this_file.read(size)
+        if not b:
+            break
+        yield b
 
 def main():
-    if os.path.isfile('/nsrl/minimal/NSRLFile.txt'):
+    if os.path.isfile(nsrl_path):
         print "INFO: Reading in NSRL Database"
-        hashes = [line.split(",")[1].strip('"') for line in open('/nsrl/minimal/NSRLFile.txt')]
-        print "INFO: Creating bloomfilter"
-        bf = BloomFilter(len(hashes), error_rate, 'nsrl.bloom')
-        print "INFO: Inserting hashes into bloomfilter"
-        for a_hash in hashes[1:]:
-            try:
-                bf.add(a_hash)
-            except Exception:
-                print "ERROR !!"
-        print "Complete"
+        with open(nsrl_path) as f_line:
+            # Strip off header
+            header = f_line.readline()
+            print "INFO: Calculating number of hashes in NSRL..."
+            num_lines = sum(bl.count("\n") for bl in blocks(f_line))
+            print "INFO: There are %s hashes in the NSRL Database" % num_lines
+        with open(nsrl_path) as f_nsrl:
+            # Strip off header
+            header = f_nsrl.readline()
+            print "INFO: Creating bloomfilter"
+            bf = BloomFilter(num_lines, error_rate, 'nsrl.bloom')
+            print "INFO: Inserting hashes into bloomfilter"
+            # bf.add((line.split(",")[1].strip('"') for line in f_nsrl))
+            # bf.update(bl.split('\n').split(",")[1].strip('"') for bl in blocks(f_nsrl))
+            for index, line in enumerate(f_nsrl):
+                # progress = 100 * index / num_lines
+                # if progress % 10 == 0:
+                #     print "Progress: {} %".format(progress)
+                md5_hash = line.split(",")[1].strip('"')
+                if md5_hash:
+                    try:
+                        bf.add(md5_hash)
+                    except Exception as e:
+                        print "ERROR: %s" % e
+            print len(bf)
+            print "Complete"
     else:
-        print("ERROR: No such file or directory: '/nsrl/NSRLFile.txt'")
+        print("ERROR: No such file or directory: %s", nsrl_path)
     return
 
+
 if __name__ == "__main__":
-  main()
+    main()
