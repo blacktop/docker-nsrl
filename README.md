@@ -47,3 +47,6 @@ This repository contains a **Dockerfile** of the [NSRL Database](http://www.nsrl
 - [x] Create python script to query NSRL bloom filter
 - [ ] Have container take a single hash or a list of hashes
 - [ ] Also add http://www.mandiant.com/library/RedlineWL//m-whitelist-1.0.zip
+
+#### Notice
+Inspired by https://github.com/bigsnarfdude/Malware-Probabilistic-Data-Structres
