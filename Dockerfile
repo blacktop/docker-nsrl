@@ -9,11 +9,14 @@ RUN echo '#!/bin/sh\nexit 101' > /usr/sbin/policy-rc.d && \
 RUN apt-get update && apt-get install -yq \
     software-properties-common \
     build-essential \
+    libssl-dev \
     python-dev \
     python-pip \
     python \
     unzip \
-    wget && pip install pybloomfiltermmap
+    wget \
+    make \
+    gcc && pip install pybloomfiltermmap
 
 # Add scripts
 ADD /scripts /nsrl/
