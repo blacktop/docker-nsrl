@@ -26,6 +26,7 @@ RUN chmod 755 /nsrl/*
 RUN /nsrl/shrink_nsrl.sh
 
 # Try to reduce size of container.
+RUN apt-get --purge -y autoremove unzip wget make gcc build-essential python-pip software-properties-common
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 WORKDIR /nsrl
