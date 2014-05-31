@@ -22,10 +22,10 @@ RUN apt-get update && apt-get install -fyq \
 ADD /scripts /nsrl/
 RUN chmod 755 /nsrl/*
 
-WORKDIR /nsrl
+# WORKDIR /nsrl
 
 # Grab NSRL Database and convert to bloomfilter
-RUN shrink_nsrl.sh
+RUN /nsrl/shrink_nsrl.sh
 
 # Try to reduce size of container.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
