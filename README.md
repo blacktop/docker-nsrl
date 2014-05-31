@@ -24,7 +24,7 @@ This repository contains a **Dockerfile** of the [NSRL Database](http://www.nsrl
 
 #### Output:
 
-    usage: search.py [-h] [-v] MD5 [MD5 ...]
+    usage: blacktop/nsrl [-h] [-v] MD5 [MD5 ...]
 
     positional arguments:
       MD5            a md5 hash to search for.

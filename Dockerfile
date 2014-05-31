@@ -22,14 +22,14 @@ RUN apt-get update && apt-get install -fyq \
 ADD /scripts /nsrl/
 RUN chmod 755 /nsrl/*
 
-# WORKDIR /nsrl
-
 # Grab NSRL Database and convert to bloomfilter
 RUN /nsrl/shrink_nsrl.sh
 
 # Try to reduce size of container.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ENTRYPOINT ["search.py"]
+WORKDIR /nsrl
+
+ENTRYPOINT ["/nsrl/search.py"]
 
 CMD ["-h"]
