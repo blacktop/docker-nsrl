@@ -6,17 +6,17 @@ RUN echo '#!/bin/sh\nexit 101' > /usr/sbin/policy-rc.d && \
     chmod +x /usr/sbin/policy-rc.d
 
 # Install dependencies
-RUN apt-get update && apt-get install -fyq \
-    software-properties-common \
-    build-essential \
-    libssl-dev \
-    python-dev \
-    python-pip \
-    python \
-    unzip \
-    wget \
-    make \
-    gcc && pip install pybloomfiltermmap
+RUN apt-get update && apt-get install -fyq python-pybloomfiltermmap
+    # software-properties-common \
+    # build-essential \
+    # libssl-dev \
+    # python-dev \
+    # python-pip \
+    # python \
+    # unzip \
+    # wget \
+    # make \
+    # gcc && pip install pybloomfiltermmap
 
 # Add scripts
 ADD /scripts /nsrl/
