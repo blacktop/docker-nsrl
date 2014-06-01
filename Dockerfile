@@ -13,8 +13,8 @@ RUN apt-get update && apt-get install -fyq python-pybloomfiltermmap
     # python-dev \
     # python-pip \
     # python \
-    # unzip \
-    # wget \
+    unzip \
+    wget
     # make \
     # gcc && pip install pybloomfiltermmap
 
