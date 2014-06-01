@@ -6,7 +6,7 @@ RUN echo '#!/bin/sh\nexit 101' > /usr/sbin/policy-rc.d && \
     chmod +x /usr/sbin/policy-rc.d
 
 # Install dependencies
-RUN apt-get update && apt-get install -fyq python-pybloomfiltermmap
+RUN apt-get update && apt-get install -fyq python-pybloomfiltermmap \
     # software-properties-common \
     # build-essential \
     # libssl-dev \
