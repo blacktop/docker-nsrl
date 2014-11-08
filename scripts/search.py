@@ -17,27 +17,25 @@ import argparse
 from pybloom import BloomFilter
 
 
-# from pybloomfilter import BloomFilter
-
-
 def main():
     parser = argparse.ArgumentParser(prog='blacktop/nsrl')
     parser.add_argument("-v", "--verbose", help="Display verbose output message", action="store_true", required=False)
     parser.add_argument('hash', metavar='MD5', type=str, nargs='+', help='a md5 hash to search for.')
     args = parser.parse_args()
 
-    bf = BloomFilter.fromfile('nsrl.bloom')
+    with open('nsrl.bloom', 'rb') as nb:
+        bf = BloomFilter.fromfile(nb)
 
-    for hash in args.hash:
-        if args.verbose:
-            if hash in bf:
-                print "Hash {} found in NSRL Database.".format(hash)
+        for hash in args.hash:
+            if args.verbose:
+                if hash in bf:
+                    print "Hash {} found in NSRL Database.".format(hash)
+                else:
+                    print "Hash {} was NOT found in NSRL Database.".format(hash)
             else:
-                print "Hash {} was NOT found in NSRL Database.".format(hash)
-        else:
-            print hash in bf
-
+                print hash in bf
     return
+
 
 if __name__ == "__main__":
     try:

@@ -13,16 +13,13 @@ This module builds a bloomfilter from the NSRL Whitelist Database.
 """
 
 import os
-import sys
 
 from pybloom import BloomFilter
 
-# from pybloomfilter import BloomFilter
-
-error_rate = 0.01
 nsrl_path = '/nsrl/minimal/NSRLFile.txt'
+error_rate = 0.01
 
-# http://stackoverflow.com/a/9631635
+# reference - http://stackoverflow.com/a/9631635
 def blocks(this_file, size=65536):
     while True:
         b = this_file.read(size)
@@ -30,21 +27,22 @@ def blocks(this_file, size=65536):
             break
         yield b
 
+
 def main():
     if os.path.isfile(nsrl_path):
-        print "INFO: Reading in NSRL Database"
+        print "BUILDING: Reading in NSRL Database"
         with open(nsrl_path) as f_line:
             # Strip off header
-            header = f_line.readline()
-            print "INFO: Calculating number of hashes in NSRL..."
+            _ = f_line.readline()
+            print "BUILDING: Calculating number of hashes in NSRL..."
             num_lines = sum(bl.count("\n") for bl in blocks(f_line))
-            print "INFO: There are %s hashes in the NSRL Database" % num_lines
+            print "BUILDING: There are %s hashes in the NSRL Database" % num_lines
         with open(nsrl_path) as f_nsrl:
             # Strip off header
-            header = f_nsrl.readline()
-            print "INFO: Creating bloomfilter"
+            _ = f_nsrl.readline()
+            print "BUILDING: Creating bloomfilter"
             bf = BloomFilter(num_lines, error_rate)
-            print "INFO: Inserting hashes into bloomfilter"
+            print "BUILDING: Inserting hashes into bloomfilter"
             for line in f_nsrl:
                 md5_hash = line.split(",")[1].strip('"')
                 if md5_hash:
@@ -52,12 +50,13 @@ def main():
                         bf.add(md5_hash)
                     except Exception as e:
                         print "ERROR: %s" % e
-            print "INFO: NSRL bloomfilter contains {} items.".format(len(bf))
+            print "BUILDING: NSRL bloomfilter contains {} items.".format(len(bf))
             with open('nsrl.bloom', 'wb') as nb:
                 bf.tofile(nb)
-            print "Complete"
+            print "BUILDING: Complete"
     else:
         print("ERROR: No such file or directory: %s", nsrl_path)
+
     return
 
 
