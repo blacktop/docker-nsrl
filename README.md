@@ -31,9 +31,9 @@ blacktop/nsrl       latest              5a007acf89a3       341.7 MB
 `docker build -t blacktop/nsrl github.com/blacktop/docker-nsrl`
 
 ### Usage
-
-    docker run -i -t blacktop/nsrl
-
+```bash
+$ docker run -i -t blacktop/nsrl
+```
 #### Output:
 
     usage: blacktop/nsrl [-h] [-v] MD5 [MD5 ...]
@@ -46,13 +46,13 @@ blacktop/nsrl       latest              5a007acf89a3       341.7 MB
       -v, --verbose  Display verbose output message
 
 #### Example (with `-v` option):
-
-    docker run -i -t blacktop/nsrl -v 60B7C0FEAD45F2066E5B805A91F4F0FC
-
+```bash
+$ docker run -i -t blacktop/nsrl -v 60B7C0FEAD45F2066E5B805A91F4F0FC
+```
 #### Output:
-
-    Hash 60B7C0FEAD45F2066E5B805A91F4F0FC found in NSRL Database.
-
+```bash
+Hash 60B7C0FEAD45F2066E5B805A91F4F0FC found in NSRL Database.
+```
 ### To Run on OSX
  - Install [Homebrew](http://brew.sh)
 
@@ -69,9 +69,8 @@ Add the following to your bash or zsh profile
 alias nsrl='docker run -it --rm blacktop/nsrl $@'
 ```
 #### Usage
-
 ```bash
-$ nsrl -v 60B7C0FEAD45F2066E5B805A91F4F0FC
+$ nsrl -v 60B7C0FEAD45F2066E5B805A91F4F0FC AABCA0896728846A9D5B841617EBE746
 ```
 
 ### Todo
