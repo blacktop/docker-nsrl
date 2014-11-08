@@ -11,7 +11,7 @@ curl -O $NSRL_URL$MIN_SET 2> /dev/null
 echo "[INFO] Unzip NSRL Database zip to /nsrl/ ..."
 unzip -uo /rds_*.zip -d /nsrl/
 
-echo "[INFO] Deleting rds_244m.zip ..."
+echo "[INFO] Deleting rds_*.zip ..."
 rm -f /rds_*.zip
 
 echo "[INFO] Build bloomfilter from NSRL Database ..."

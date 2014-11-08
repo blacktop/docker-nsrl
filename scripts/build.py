@@ -17,7 +17,7 @@ import os
 from pybloom import BloomFilter
 
 nsrl_path = '/nsrl/minimal/NSRLFile.txt'
-error_rate = 0.01
+error_rate = 0.001
 
 # reference - http://stackoverflow.com/a/9631635
 def blocks(this_file, size=65536):
