@@ -10,8 +10,7 @@ RUN \
   apt-get -qq update && \
   apt-get install -yq python-bloomfilter \
                       unzip \
-                      wget \
-                      curl && \
+                      curl  --no-install-recommends && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Add scripts
@@ -20,9 +19,6 @@ RUN chmod 755 /nsrl/*
 
 # Grab NSRL Database and convert to bloomfilter
 RUN /nsrl/shrink_nsrl.sh
-
-# Try to reduce size of container.
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 WORKDIR /nsrl
 
