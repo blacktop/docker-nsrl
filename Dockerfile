@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:wheezy
 MAINTAINER blacktop, https://github.com/blacktop
 
 #Prevent daemon start during install
@@ -6,7 +6,7 @@ RUN echo '#!/bin/sh\nexit 101' > /usr/sbin/policy-rc.d && \
     chmod +x /usr/sbin/policy-rc.d
 
 # Install dependencies
-RUN apt-get update && apt-get install -fyq python-pybloomfiltermmap wget unzip
+RUN apt-get update && apt-get install -fyq python-pybloomfiltermmap wget curl unzip
     # software-properties-common \
     # build-essential \
     # libssl-dev \
