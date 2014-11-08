@@ -1,7 +1,7 @@
 ![NSRL logo](https://raw.githubusercontent.com/blacktop/docker-nsrl/master/logo.png)
 NSRL Dockerfile
 =============
-This takes the **2.4GB** NSRL minimal set and converts it into a **80MB** bloomfilter
+This takes the **2.4GB** NSRL minimal set and converts it into a **95MB** bloomfilter
 
 This repository contains a **Dockerfile** of the [NSRL Database](http://www.nsrl.nist.gov/Downloads.htm) for [Docker](https://www.docker.io/)'s [trusted build](https://index.docker.io/u/blacktop/nsrl/) published to the public [Docker Registry](https://index.docker.io/).
 
@@ -11,14 +11,14 @@ This repository contains a **Dockerfile** of the [NSRL Database](http://www.nsrl
 ### Image Sizes
 | Image | Virtual Size | NSRL      | TOTAL     |
 |:------:|:-----------:|:---------:|:---------:|
-| debian | 85.19 MB    | 256.51 MB | 341.7 MB  |
+| debian | 85.19 MB    | 130.41 MB | 215.6 MB  |
 
 ### Image Tags
 ```bash
 $ docker images
 
 REPOSITORY          TAG                 IMAGE ID           VIRTUAL SIZE
-blacktop/nsrl       latest              5a007acf89a3       341.7 MB
+blacktop/nsrl       latest              9653b5cb1c78       215.6 MB
 ```
 
 ### Installation
