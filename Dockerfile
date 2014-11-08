@@ -8,10 +8,10 @@ RUN echo '#!/bin/sh\nexit 101' > /usr/sbin/policy-rc.d && \
 # Install dependencies
 RUN \
   apt-get -qq update && \
-  apt-get install -yq python-setuptools \
+  apt-get install -yq python-bloomfilter \
                       unzip \
                       wget \
-                      curl && easy_install pybloomfiltermmap \
+                      curl && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Add scripts

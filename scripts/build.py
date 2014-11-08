@@ -15,7 +15,9 @@ This module builds a bloomfilter from the NSRL Whitelist Database.
 import os
 import sys
 
-from pybloomfilter import BloomFilter
+from pybloom import BloomFilter
+
+# from pybloomfilter import BloomFilter
 
 error_rate = 0.01
 nsrl_path = '/nsrl/minimal/NSRLFile.txt'
@@ -41,7 +43,7 @@ def main():
             # Strip off header
             header = f_nsrl.readline()
             print "INFO: Creating bloomfilter"
-            bf = BloomFilter(num_lines, error_rate, 'nsrl.bloom')
+            bf = BloomFilter(num_lines, error_rate)
             print "INFO: Inserting hashes into bloomfilter"
             for line in f_nsrl:
                 md5_hash = line.split(",")[1].strip('"')
@@ -51,6 +53,8 @@ def main():
                     except Exception as e:
                         print "ERROR: %s" % e
             print "INFO: NSRL bloomfilter contains {} items.".format(len(bf))
+            with open('nsrl.bloom', 'wb') as nb:
+                bf.tofile(nb)
             print "Complete"
     else:
         print("ERROR: No such file or directory: %s", nsrl_path)

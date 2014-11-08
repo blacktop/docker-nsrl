@@ -14,7 +14,10 @@ This module searches the bloomfilter for a given MD5 hash.
 
 import argparse
 
-from pybloomfilter import BloomFilter
+from pybloom import BloomFilter
+
+
+# from pybloomfilter import BloomFilter
 
 
 def main():
@@ -23,7 +26,7 @@ def main():
     parser.add_argument('hash', metavar='MD5', type=str, nargs='+', help='a md5 hash to search for.')
     args = parser.parse_args()
 
-    bf = BloomFilter.open('nsrl.bloom')
+    bf = BloomFilter.fromfile('nsrl.bloom')
 
     for hash in args.hash:
         if args.verbose:
