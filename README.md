@@ -21,6 +21,7 @@ REPOSITORY          TAG                 IMAGE ID           VIRTUAL SIZE
 blacktop/nsrl       latest              095c76167b20       215.6 MB
 blacktop/nsrl       error_0.001         688e50f0985a       263.2 MB
 ```
+> Note: The **error_0.001** tag has a much lower error_rate threshold, it does however, grow the size of the bloomfilter.
 
 ### Installation
 
