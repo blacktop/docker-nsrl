@@ -18,7 +18,8 @@ This repository contains a **Dockerfile** of the [NSRL Database](http://www.nsrl
 $ docker images
 
 REPOSITORY          TAG                 IMAGE ID           VIRTUAL SIZE
-blacktop/nsrl       latest              9653b5cb1c78       215.6 MB
+blacktop/nsrl       latest              095c76167b20       215.6 MB
+blacktop/nsrl       error_0.001         688e50f0985a       263.2 MB
 ```
 
 ### Installation
