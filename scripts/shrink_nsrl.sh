@@ -8,8 +8,9 @@ MIN_SET=$(curl ${NSRL_URL}Downloads.htm 2> /dev/null | \
   sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//')
 curl -O $NSRL_URL$MIN_SET 2> /dev/null
 
-echo "[INFO] Unzip NSRL Database zip to /nsrl/ ..."
-unzip -uo /rds_*.zip -d /nsrl/
+echo "[INFO] Unzip NSRL Database zip to /nsrl/minimal ..."
+mkdir /nsrl/minimal
+unzip -juo /rds_*.zip -d /nsrl/minimal
 
 echo "[INFO] Deleting rds_244m.zip ..."
 rm -f /rds_*.zip
