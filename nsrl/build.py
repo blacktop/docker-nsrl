@@ -33,7 +33,7 @@ def blocks(this_file, size=65536):
 def main(argv):
     if argv:
         error_rate = float(argv[0])
-    print "BUILDING: Using error-rate: {}".format(error_rate)        
+    print "BUILDING: Using error-rate: {}".format(error_rate)
     if os.path.isfile(nsrl_path):
         print "BUILDING: Reading in NSRL Database"
         with open(nsrl_path) as f_line:
