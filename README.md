@@ -2,7 +2,7 @@
 NSRL Dockerfile
 ===============
 
-[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square](http://doge.mit-license.org)
 
 This takes the **5.43GB** NSRL minimal set and converts it into a **96M** bloomfilter
 
