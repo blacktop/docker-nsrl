@@ -1,25 +1,25 @@
 ![NSRL logo](https://raw.githubusercontent.com/blacktop/docker-nsrl/master/logo.png)
 NSRL Dockerfile
-=============
-This takes the **2.4GB** NSRL minimal set and converts it into a **95MB** bloomfilter
+===============
+This takes the **5.43GB** NSRL minimal set and converts it into a **96M** bloomfilter
 
 This repository contains a **Dockerfile** of the [NSRL Database](http://www.nsrl.nist.gov/Downloads.htm) for [Docker](https://www.docker.io/)'s [trusted build](https://index.docker.io/u/blacktop/nsrl/) published to the public [Docker Registry](https://index.docker.io/).
 
 ### Dependencies
-* [debian:wheezy](https://index.docker.io/_/debian/)
+* [alpine](https://registry.hub.docker.com/_/alpine/)
 
 ### Image Sizes
-| Image | Virtual Size | NSRL      | TOTAL     |
-|:------:|:-----------:|:---------:|:---------:|
-| debian | 85.19 MB    | 130.41 MB | 215.6 MB  |
+[![](https://badge.imagelayers.io/blacktop/nsrl:latest.svg)](https://imagelayers.io/?images=blacktop/nsrl:latest 'Get your own badge on imagelayers.io')
 
 ### Image Tags
 ```bash
 $ docker images
 
-REPOSITORY          TAG                 IMAGE ID           VIRTUAL SIZE
-blacktop/nsrl       latest              9653b5cb1c78       215.6 MB
+REPOSITORY          TAG                 VIRTUAL SIZE
+blacktop/nsrl       latest              215.6 MB
+blacktop/nsrl       error_0.001         263.2 MB
 ```
+> Note: The **error_0.001** tag has a much lower error_rate threshold, it does however, grow the size of the bloomfilter.
 
 ### Installation
 
@@ -57,11 +57,12 @@ Hash 60B7C0FEAD45F2066E5B805A91F4F0FC found in NSRL Database.
  - Install [Homebrew](http://brew.sh)
 
 ```bash
-$ brew install cask
+$ brew install caskroom/cask/brew-cask
 $ brew cask install virtualbox
 $ brew install docker
-$ brew install boot2docker
-$ boot2docker up
+$ brew install docker-machine
+$ docker-machine create --driver virtualbox dev
+$ eval $(docker-machine env dev)
 ```
 Add the following to your bash or zsh profile
 
@@ -73,12 +74,13 @@ alias nsrl='docker run -it --rm blacktop/nsrl $@'
 $ nsrl -v 60B7C0FEAD45F2066E5B805A91F4F0FC AABCA0896728846A9D5B841617EBE746
 ```
 
-### Todo
-- [x] Install/Run NSRL
-- [x] Convert NSRL to a much smaller bloom filter
-- [x] Create python script to query NSRL bloom filter
-- [x] Have container take a single hash or a list of hashes
-- [ ] Also add http://www.mandiant.com/library/RedlineWL//m-whitelist-1.0.zip
+### Optional Build Options
+You can use different **NSRL databases** or **error-rates** for the bloomfilter (*which will increase it's accuracy*)
+1. To use your own [NSRL](http://www.nsrl.nist.gov/Downloads.htm) database simply download the ZIP and place it in the `nsrl` folder and build the image like so:
+```bash
+$ docker build -t my_nsrl .
+```
+2. To decrease the error-rate of the bloomfilter simply change the value of `ERROR_RATE` in the file `nsrl/shrink_nsrl.sh` and build as above.
 
 #### Notice
 Inspired by https://github.com/bigsnarfdude/Malware-Probabilistic-Data-Structres

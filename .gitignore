@@ -1,6 +1,5 @@
-.idea
+.DS_Store
 *.txt
 *.zip
 *.bloom
-*_old.py
 *.pyc
