@@ -79,10 +79,8 @@ $ nsrl -v 60B7C0FEAD45F2066E5B805A91F4F0FC AABCA0896728846A9D5B841617EBE746
 
 ### Optional Build Options
 You can use different **NSRL databases** or **error-rates** for the bloomfilter (*which will increase it's accuracy*)
-1. To use your own [NSRL](http://www.nsrl.nist.gov/Downloads.htm) database simply download the ZIP and place it in the `nsrl` folder and build the image like so:
-```bash
-$ docker build -t my_nsrl .
-```
+
+1. To use your own [NSRL](http://www.nsrl.nist.gov/Downloads.htm) database simply download the ZIP and place it in the `nsrl` folder and build the image like so: `docker build -t my_nsrl .`
 2. To decrease the error-rate of the bloomfilter simply change the value of `ERROR_RATE` in the file `nsrl/shrink_nsrl.sh` and build as above.
 
 #### Notice
