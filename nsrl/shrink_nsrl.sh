@@ -25,4 +25,5 @@ echo "[INFO] Listing created files ..."
 ls -lah /nsrl
 
 echo "[INFO] Deleting all unused files ..."
-rm -rf /nsrl/minimal/ /nsrl/*.txt /nsrl/build.py /nsrl/*.zip
+rm -f /nsrl/*.zip /nsrl/*.txt /nsrl/build.py
+ls -lah /nsrl
