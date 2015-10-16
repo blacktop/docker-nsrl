@@ -2,7 +2,7 @@
 
 set -x
 
-ERROR_RATE=0.01
+ERROR_RATE=0.001
 
 if [ -f /nsrl/*.zip ]; then
    echo "File '.zip' Exists."
