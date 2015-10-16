@@ -2,7 +2,7 @@
 NSRL Dockerfile
 ===============
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square](http://doge.mit-license.org)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](http://doge.mit-license.org)
 
 This takes the **5.43GB** NSRL minimal set and converts it into a **96M** bloomfilter
 
@@ -12,7 +12,7 @@ This repository contains a **Dockerfile** of the [NSRL Database](http://www.nsrl
 * [alpine](https://registry.hub.docker.com/_/alpine/)
 
 ### Image Sizes
-[![](https://badge.imagelayers.io/blacktop/nsrl:error_0.001.svg)](https://imagelayers.io/?images=blacktop/nsrl:error_0.001 'Get your own badge on imagelayers.io')
+[![](https://badge.imagelayers.io/blacktop/nsrl:latest.svg)](https://imagelayers.io/?images=blacktop/nsrl:latest 'Get your own badge on imagelayers.io')
 
 ### Image Tags
 ```bash
