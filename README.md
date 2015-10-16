@@ -9,9 +9,7 @@ This repository contains a **Dockerfile** of the [NSRL Database](http://www.nsrl
 * [debian:wheezy](https://index.docker.io/_/debian/)
 
 ### Image Sizes
-| Image | Virtual Size | NSRL      | TOTAL     |
-|:------:|:-----------:|:---------:|:---------:|
-| debian | 85.19 MB    | 130.41 MB | 215.6 MB  |
+[![](https://badge.imagelayers.io/blacktop/nsrl:latest.svg)](https://imagelayers.io/?images=blacktop/nsrl:latest 'Get your own badge on imagelayers.io')
 
 ### Image Tags
 ```bash
