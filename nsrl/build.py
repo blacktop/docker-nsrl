@@ -1,6 +1,5 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 """
 build.py
 ~~~~~~~~
@@ -9,15 +8,18 @@ This module builds a bloomfilter from the NSRL Whitelist Database.
 
 :copyright: (c) 2014 by Josh "blacktop" Maine.
 :license: GPLv3
-
+:improved_by: https://github.com/kost
 """
 
+import binascii
 import os
+import sys
 
 from pybloom import BloomFilter
 
-nsrl_path = '/nsrl/minimal/NSRLFile.txt'
+nsrl_path = '/nsrl/NSRLFile.txt'
 error_rate = 0.01
+
 
 # reference - http://stackoverflow.com/a/9631635
 def blocks(this_file, size=65536):
@@ -28,7 +30,10 @@ def blocks(this_file, size=65536):
         yield b
 
 
-def main():
+def main(argv):
+    if argv:
+        error_rate = float(argv[0])
+    print "BUILDING: Using error-rate: {}".format(error_rate)        
     if os.path.isfile(nsrl_path):
         print "BUILDING: Reading in NSRL Database"
         with open(nsrl_path) as f_line:
@@ -47,7 +52,8 @@ def main():
                 md5_hash = line.split(",")[1].strip('"')
                 if md5_hash:
                     try:
-                        bf.add(md5_hash)
+                        md5 = binascii.unhexlify(md5_hash)
+                        bf.add(md5)
                     except Exception as e:
                         print "ERROR: %s" % e
             print "BUILDING: NSRL bloomfilter contains {} items.".format(len(bf))
@@ -61,4 +67,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1:])

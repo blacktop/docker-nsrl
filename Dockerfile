@@ -1,24 +1,19 @@
-FROM debian:wheezy
+FROM alpine
+
 MAINTAINER blacktop, https://github.com/blacktop
 
-#Prevent daemon start during install
-RUN echo '#!/bin/sh\nexit 101' > /usr/sbin/policy-rc.d && \
-    chmod +x /usr/sbin/policy-rc.d
-
-# Install dependencies
-RUN \
-  apt-get -qq update && \
-  apt-get install -yq python-bloomfilter \
-                      unzip \
-                      curl  --no-install-recommends && \
-  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
 # Add scripts
-ADD /scripts /nsrl/
-RUN chmod 755 /nsrl/*
+COPY nsrl /nsrl
+RUN chmod 0755 /nsrl/*
 
-# Grab NSRL Database and convert to bloomfilter
-RUN /nsrl/shrink_nsrl.sh
+RUN buildDeps='gcc libc-dev python-dev py-pip p7zip' \
+  && set -x \
+  && apk --update add python $buildDeps \
+  && rm -f /var/cache/apk/* \
+  && pip install pybloom \
+  && /nsrl/shrink_nsrl.sh \
+  && apk del --purge gcc libc-dev python-dev py-pip \
+  && rm -rf /tmp/* /root/.cache /var/cache/apk/*
 
 WORKDIR /nsrl
 

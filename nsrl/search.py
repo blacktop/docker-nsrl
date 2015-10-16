@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 """
 search.py
 ~~~~~~~~
@@ -9,10 +8,11 @@ This module searches the bloomfilter for a given MD5 hash.
 
 :copyright: (c) 2014 by Josh "blacktop" Maine.
 :license: GPLv3
-
+:improved_by: https://github.com/kost
 """
 
 import argparse
+import binascii
 
 from pybloom import BloomFilter
 
@@ -26,7 +26,8 @@ def main():
     with open('nsrl.bloom', 'rb') as nb:
         bf = BloomFilter.fromfile(nb)
 
-        for hash in args.hash:
+        for hash_hex in args.hash:
+            hash = binascii.unhexlify(hash_hex)
             if args.verbose:
                 if hash in bf:
                     print "Hash {} found in NSRL Database.".format(hash)
