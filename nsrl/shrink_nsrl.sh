@@ -26,5 +26,3 @@ ls -lah /nsrl
 
 echo "[INFO] Deleting all unused files ..."
 rm -rf /nsrl/minimal/ /nsrl/*.txt /nsrl/build.py /nsrl/*.zip
-
-# TODO : Also add http://www.mandiant.com/library/RedlineWL//m-whitelist-1.0.zip
