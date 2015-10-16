@@ -33,21 +33,21 @@ def blocks(this_file, size=65536):
 def main(argv):
     if argv:
         error_rate = float(argv[0])
-    print "BUILDING: Using error-rate: {}".format(error_rate)
+    print "[BUILDING] Using error-rate: {}".format(error_rate)
     if os.path.isfile(nsrl_path):
-        print "BUILDING: Reading in NSRL Database"
+        print "[BUILDING] Reading in NSRL Database"
         with open(nsrl_path) as f_line:
             # Strip off header
             _ = f_line.readline()
-            print "BUILDING: Calculating number of hashes in NSRL..."
+            print "[BUILDING] Calculating number of hashes in NSRL..."
             num_lines = sum(bl.count("\n") for bl in blocks(f_line))
-            print "BUILDING: There are %s hashes in the NSRL Database" % num_lines
+            print "[BUILDING] There are %s hashes in the NSRL Database" % num_lines
         with open(nsrl_path) as f_nsrl:
             # Strip off header
             _ = f_nsrl.readline()
-            print "BUILDING: Creating bloomfilter"
+            print "[BUILDING] Creating bloomfilter"
             bf = BloomFilter(num_lines, error_rate)
-            print "BUILDING: Inserting hashes into bloomfilter"
+            print "[BUILDING] Inserting hashes into bloomfilter"
             for line in f_nsrl:
                 md5_hash = line.split(",")[1].strip('"')
                 if md5_hash:
@@ -55,13 +55,13 @@ def main(argv):
                         md5 = binascii.unhexlify(md5_hash)
                         bf.add(md5)
                     except Exception as e:
-                        print "ERROR: %s" % e
-            print "BUILDING: NSRL bloomfilter contains {} items.".format(len(bf))
+                        print "[ERROR] %s" % e
+            print "[BUILDING] NSRL bloomfilter contains {} items.".format(len(bf))
             with open('nsrl.bloom', 'wb') as nb:
                 bf.tofile(nb)
-            print "BUILDING: Complete"
+            print "[BUILDING] Complete"
     else:
-        print("ERROR: No such file or directory: %s", nsrl_path)
+        print("[ERROR] No such file or directory: %s", nsrl_path)
 
     return
 
