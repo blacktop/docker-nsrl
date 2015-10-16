@@ -13,7 +13,7 @@ else
       grep -m 1  "Minimal set" | \
       grep -o '<a href=['"'"'"][^"'"'"']*['"'"'"]' | \
       sed -e 's/^<a href=["'"'"']//' -e 's/["'"'"']$//')
-    wget $NSRL_URL$MIN_SET 2> /dev/null
+    wget -P /nsrl/ $NSRL_URL$MIN_SET 2> /dev/null
 fi
 
 echo "[INFO] Unzip NSRL Database zip to /nsrl/ ..."
