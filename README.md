@@ -1,6 +1,9 @@
 ![NSRL logo](https://raw.githubusercontent.com/blacktop/docker-nsrl/master/logo.png)
 NSRL Dockerfile
 ===============
+
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
+
 This takes the **5.43GB** NSRL minimal set and converts it into a **96M** bloomfilter
 
 This repository contains a **Dockerfile** of the [NSRL Database](http://www.nsrl.nist.gov/Downloads.htm) for [Docker](https://www.docker.io/)'s [trusted build](https://index.docker.io/u/blacktop/nsrl/) published to the public [Docker Registry](https://index.docker.io/).
