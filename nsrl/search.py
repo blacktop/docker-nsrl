@@ -30,9 +30,9 @@ def main():
             hash = binascii.unhexlify(hash_hex)
             if args.verbose:
                 if hash in bf:
-                    print "Hash {} found in NSRL Database.".format(hash)
+                    print "Hash {} found in NSRL Database.".format(hash_hex)
                 else:
-                    print "Hash {} was NOT found in NSRL Database.".format(hash)
+                    print "Hash {} was NOT found in NSRL Database.".format(hash_hex)
             else:
                 print hash in bf
     return
