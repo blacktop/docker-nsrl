@@ -13,7 +13,7 @@ RUN buildDeps='gcc libc-dev python-dev py-pip p7zip' \
   && pip install pybloom \
   && /nsrl/shrink_nsrl.sh \
   && apk del --purge gcc libc-dev python-dev py-pip \
-  && rm -rf /tmp/* /root/.cache /var/cache/apk/*
+  && rm -rf /tmp/* /root/.cache /var/cache/apk/* /nsrl/shrink_nsrl.sh
 
 WORKDIR /nsrl
 
