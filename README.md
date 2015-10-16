@@ -56,6 +56,20 @@ $ docker run -i -t blacktop/nsrl -v 60B7C0FEAD45F2066E5B805A91F4F0FC
 ```bash
 Hash 60B7C0FEAD45F2066E5B805A91F4F0FC found in NSRL Database.
 ```
+
+#### To read from a **hash-list** file:
+```bash
+$ cat hash-list.txt
+60B7C0FEAD45F2066E5B805A91F4F0FC
+AABCA0896728846A9D5B841617EBE746
+AABCA0896728846A9D5B841617EBE745
+
+$ cat hash-list.txt | xargs docker run --rm blacktop/nsrl
+True
+True
+False
+```
+
 ### To Run on OSX
  - Install [Homebrew](http://brew.sh)
 
@@ -70,7 +84,7 @@ $ eval $(docker-machine env dev)
 Add the following to your bash or zsh profile
 
 ```bash
-alias nsrl='docker run -it --rm blacktop/nsrl $@'
+alias nsrl='docker run --rm blacktop/nsrl $@'
 ```
 #### Usage
 ```bash
