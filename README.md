@@ -19,8 +19,8 @@ This repository contains a **Dockerfile** of the [NSRL Database](http://www.nsrl
 $ docker images
 
 REPOSITORY          TAG                 VIRTUAL SIZE
-blacktop/nsrl       latest              148 MB
-blacktop/nsrl       error_0.001         198 MB
+blacktop/nsrl       latest              142 MB
+blacktop/nsrl       error_0.001         192 MB
 ```
 > Note: The **error_0.001** tag has a much lower error_rate threshold, it does however, grow the size of the bloomfilter.
 
