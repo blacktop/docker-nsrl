@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# copyright: (c) 2014 by Josh "blacktop" Maine.
+# license: MIT
+
 set -x
 
 ERROR_RATE=0.001
