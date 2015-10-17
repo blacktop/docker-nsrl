@@ -51,19 +51,19 @@ $ docker run -i -t blacktop/nsrl
 
 #### Example (with `-v` option):
 ```bash
-$ docker run -i -t blacktop/nsrl -v 60B7C0FEAD45F2066E5B805A91F4F0FC
+$ docker run -i -t blacktop/nsrl -v 000000206738748EDD92C4E3D2E823896700F849
 ```
 #### Output:
 ```bash
-Hash 60B7C0FEAD45F2066E5B805A91F4F0FC found in NSRL Database.
+Hash 000000206738748EDD92C4E3D2E823896700F849 found in NSRL Database.
 ```
 
 #### To read from a **hash-list** file:
 ```bash
 $ cat hash-list.txt
-60B7C0FEAD45F2066E5B805A91F4F0FC
-AABCA0896728846A9D5B841617EBE746
-AABCA0896728846A9D5B841617EBE745
+000000206738748EDD92C4E3D2E823896700F849
+0000002D9D62AEBE1E0E9DB6C4C4C7C16A163D2C
+000000206738748EDD92C4E3D2E823896700F848
 
 $ cat hash-list.txt | xargs docker run --rm blacktop/nsrl
 True
@@ -89,7 +89,7 @@ alias nsrl='docker run --rm blacktop/nsrl $@'
 ```
 #### Usage
 ```bash
-$ nsrl -v 60B7C0FEAD45F2066E5B805A91F4F0FC AABCA0896728846A9D5B841617EBE746
+$ nsrl -v 000000206738748EDD92C4E3D2E823896700F849 0000002D9D62AEBE1E0E9DB6C4C4C7C16A163D2C
 ```
 
 ### Optional Build Options

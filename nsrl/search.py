@@ -4,7 +4,7 @@
 search.py
 ~~~~~~~~
 
-This module searches the bloomfilter for a given MD5 hash.
+This module searches the bloomfilter for a given SHA1 hash.
 
 :copyright: (c) 2014 by Josh "blacktop" Maine.
 :license: MIT
@@ -43,6 +43,3 @@ if __name__ == "__main__":
         main()
     except Exception as e:
         print "Error: %s" % e
-
-# test_hash = 'AABCA0896728846A9D5B841617EBE746'
-# calc_hash = '60B7C0FEAD45F2066E5B805A91F4F0FC'
