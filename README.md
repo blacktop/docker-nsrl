@@ -11,7 +11,7 @@ This repository contains a **Dockerfile** of the [NSRL Database](http://www.nsrl
 ### Dependencies
 * [alpine](https://registry.hub.docker.com/_/alpine/)
 
-### Image Sizes
+### Image Size
 [![](https://badge.imagelayers.io/blacktop/nsrl:latest.svg)](https://imagelayers.io/?images=blacktop/nsrl:latest 'Get your own badge on imagelayers.io')
 
 ### Image Tags
