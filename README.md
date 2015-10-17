@@ -24,7 +24,7 @@ blacktop/nsrl       sha1                142 MB
 blacktop/nsrl       name                142 MB
 blacktop/nsrl       error_0.001         192 MB
 ```
-> Note: There are **3** other versions of this image:
+> NOTE: There are **3** other versions of this image:
  - [sha1](https://github.com/blacktop/docker-nsrl/tree/sha1) tag allows you to search the NSRL DB by **sha-1** hash
  - [name](https://github.com/blacktop/docker-nsrl/tree/name) tag allows you to search the NSRL DB by **filename**
  - [error_0.001](https://github.com/blacktop/docker-nsrl/tree/error_0.001) tag searches by **md5** hash and has a much **lower error_rate** threshold. Tt does, however, grow the size of the bloomfilter by 50MB.
