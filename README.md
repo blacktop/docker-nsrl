@@ -20,6 +20,8 @@ $ docker images
 
 REPOSITORY          TAG                 VIRTUAL SIZE
 blacktop/nsrl       latest              142 MB
+blacktop/nsrl       sha1                142 MB
+blacktop/nsrl       name                142 MB
 blacktop/nsrl       error_0.001         192 MB
 ```
 > Note: The **error_0.001** tag has a much lower error_rate threshold, it does however, grow the size of the bloomfilter.
