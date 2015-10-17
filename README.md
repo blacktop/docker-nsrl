@@ -20,6 +20,7 @@ $ docker images
 
 REPOSITORY          TAG                 VIRTUAL SIZE
 blacktop/nsrl       latest              142 MB
+blacktop/nsrl       sha1                142 MB
 blacktop/nsrl       error_0.001         192 MB
 ```
 > Note: The **error_0.001** tag has a much lower error_rate threshold, it does however, grow the size of the bloomfilter.
@@ -39,10 +40,10 @@ $ docker run -i -t blacktop/nsrl
 ```
 #### Output:
 
-    usage: blacktop/nsrl [-h] [-v] MD5 [MD5 ...]
+    usage: blacktop/nsrl [-h] [-v] SHA1 [SHA1 ...]
 
     positional arguments:
-      MD5            a md5 hash to search for.
+      SHA1            a sha1 hash to search for.
 
     optional arguments:
       -h, --help     show this help message and exit

@@ -20,7 +20,7 @@ from pybloom import BloomFilter
 def main():
     parser = argparse.ArgumentParser(prog='blacktop/nsrl')
     parser.add_argument("-v", "--verbose", help="Display verbose output message", action="store_true", required=False)
-    parser.add_argument('hash', metavar='MD5', type=str, nargs='+', help='a md5 hash to search for.')
+    parser.add_argument('hash', metavar='SHA1', type=str, nargs='+', help='a sha1 hash to search for.')
     args = parser.parse_args()
 
     with open('nsrl.bloom', 'rb') as nb:
