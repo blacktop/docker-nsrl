@@ -49,11 +49,11 @@ def main(argv):
             bf = BloomFilter(num_lines, error_rate)
             print "[BUILDING] Inserting hashes into bloomfilter"
             for line in f_nsrl:
-                md5_hash = line.split(",")[1].strip('"')
-                if md5_hash:
+                file_name = line.split(",")[3].strip('"')
+                if file_name:
                     try:
-                        md5 = binascii.unhexlify(md5_hash)
-                        bf.add(md5)
+                        file_name = binascii.unhexlify(file_name)
+                        bf.add(file_name)
                     except Exception as e:
                         print "[ERROR] %s" % e
             print "[BUILDING] NSRL bloomfilter contains {} items.".format(len(bf))
