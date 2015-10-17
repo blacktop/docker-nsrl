@@ -11,7 +11,6 @@ This module builds a bloomfilter from the NSRL Whitelist Database.
 :improved_by: https://github.com/kost
 """
 
-import binascii
 import os
 import sys
 
@@ -52,7 +51,6 @@ def main(argv):
                 file_name = line.split(",")[3].strip('"')
                 if file_name:
                     try:
-                        file_name = binascii.unhexlify(file_name)
                         bf.add(file_name)
                     except Exception as e:
                         print "[ERROR] %s" % e
