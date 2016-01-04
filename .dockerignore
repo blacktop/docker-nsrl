@@ -1,3 +1,7 @@
+# Ignore .git folder
+.git*
+.gitignore
+
 nsrl/.DS_Store
 .DS_Store
 logo.png

@@ -2,7 +2,12 @@
 NSRL Dockerfile
 ===============
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](http://doge.mit-license.org)
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
+[![Docker Stars](https://img.shields.io/docker/stars/blacktop/nsrl.svg)][hub]
+[![Docker Pulls](https://img.shields.io/docker/pulls/blacktop/nsrl.svg)][hub]
+[![Image Size](https://img.shields.io/imagelayers/image-size/blacktop/nsrl/latest.svg)](https://imagelayers.io/?images=blacktop/nsrl:latest)
+[![Image Layers](https://img.shields.io/imagelayers/layers/blacktop/nsrl/latest.svg)](https://imagelayers.io/?images=blacktop/nsrl:latest)
+
 
 This takes the **5.43GB** NSRL minimal set and converts it into a **96M** [bloom filter](https://en.wikipedia.org/wiki/Bloom_filter).
 
@@ -10,9 +15,6 @@ This repository contains a **Dockerfile** of the [NSRL Database](http://www.nsrl
 
 ### Dependencies
 * [alpine](https://registry.hub.docker.com/_/alpine/)
-
-### Image Size
-[![](https://badge.imagelayers.io/blacktop/nsrl:latest.svg)](https://imagelayers.io/?images=blacktop/nsrl:latest 'Get your own badge on imagelayers.io')
 
 ### Image Tags
 ```bash
@@ -104,3 +106,5 @@ You can use different **NSRL databases** or **error-rates** for the bloomfilter 
 
 #### Notice
 Inspired by https://github.com/bigsnarfdude/Malware-Probabilistic-Data-Structres
+
+[hub]: https://hub.docker.com/r/blacktop/nsrl/
