@@ -79,7 +79,7 @@ True
 False
 ```
 
-### Optional Build Options
+#### Optional Build Options
 
 You can use different **NSRL databases** or **error-rates** for the bloomfilter (*which will increase it's accuracy*\)
 
