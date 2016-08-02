@@ -3,3 +3,6 @@
 *.zip
 *.bloom
 *.pyc
+build
+release
+*.bu
