@@ -4,7 +4,7 @@
 search.py
 ~~~~~~~~
 
-This module searches the bloomfilter for a given MD5 hash.
+This module searches the bloomfilter for a given FILE name.
 
 :copyright: (c) 2014 by Josh "blacktop" Maine.
 :license: MIT
@@ -12,7 +12,6 @@ This module searches the bloomfilter for a given MD5 hash.
 """
 
 import argparse
-import binascii
 
 from pybloom import BloomFilter
 
@@ -20,21 +19,20 @@ from pybloom import BloomFilter
 def main():
     parser = argparse.ArgumentParser(prog='blacktop/nsrl')
     parser.add_argument("-v", "--verbose", help="Display verbose output message", action="store_true", required=False)
-    parser.add_argument('hash', metavar='MD5', type=str, nargs='+', help='a md5 hash to search for.')
+    parser.add_argument('name', metavar='FILE', type=str, nargs='+', help='a file name to search for.')
     args = parser.parse_args()
 
     with open('nsrl.bloom', 'rb') as nb:
         bf = BloomFilter.fromfile(nb)
 
-        for hash_hex in args.hash:
-            hash = binascii.unhexlify(hash_hex)
+        for file_name in args.name:
             if args.verbose:
-                if hash in bf:
-                    print "Hash {} found in NSRL Database.".format(hash_hex)
+                if file_name in bf:
+                    print "File {} found in NSRL Database.".format(file_name)
                 else:
-                    print "Hash {} was NOT found in NSRL Database.".format(hash_hex)
+                    print "File {} was NOT found in NSRL Database.".format(file_name)
             else:
-                print hash in bf
+                print file_name in bf
     return
 
 
@@ -43,6 +41,3 @@ if __name__ == "__main__":
         main()
     except Exception as e:
         print "Error: %s" % e
-
-# test_hash = 'AABCA0896728846A9D5B841617EBE746'
-# calc_hash = '60B7C0FEAD45F2066E5B805A91F4F0FC'

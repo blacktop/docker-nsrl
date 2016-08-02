@@ -3,15 +3,12 @@
 """
 build.py
 ~~~~~~~~
-
 This module builds a bloomfilter from the NSRL Whitelist Database.
-
 :copyright: (c) 2014 by Josh "blacktop" Maine.
 :license: MIT
 :improved_by: https://github.com/kost
 """
 
-import binascii
 import os
 import sys
 
@@ -49,11 +46,10 @@ def main(argv):
             bf = BloomFilter(num_lines, error_rate)
             print "[BUILDING] Inserting hashes into bloomfilter"
             for line in f_nsrl:
-                md5_hash = line.split(",")[1].strip('"')
-                if md5_hash:
+                file_name = line.split(",")[3].strip('"')
+                if file_name:
                     try:
-                        md5 = binascii.unhexlify(md5_hash)
-                        bf.add(md5)
+                        bf.add(file_name)
                     except Exception as e:
                         print "[ERROR] %s" % e
             print "[BUILDING] NSRL bloomfilter contains {} items.".format(len(bf))

@@ -3,9 +3,7 @@
 """
 search.py
 ~~~~~~~~
-
 This module searches the bloomfilter for a given MD5 hash.
-
 :copyright: (c) 2014 by Josh "blacktop" Maine.
 :license: MIT
 :improved_by: https://github.com/kost

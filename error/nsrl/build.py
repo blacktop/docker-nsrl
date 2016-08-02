@@ -3,9 +3,7 @@
 """
 build.py
 ~~~~~~~~
-
 This module builds a bloomfilter from the NSRL Whitelist Database.
-
 :copyright: (c) 2014 by Josh "blacktop" Maine.
 :license: MIT
 :improved_by: https://github.com/kost
