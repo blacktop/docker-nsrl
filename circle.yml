@@ -2,6 +2,9 @@ machine:
   services:
     - docker
 
+general:
+  build_dir: "latest"
+
 dependencies:
   cache_directories:
     - "~/docker"
