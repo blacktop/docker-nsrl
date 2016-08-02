@@ -1,0 +1,17 @@
+# Ignore .git folder
+.git*
+.gitignore
+
+.DS_Store
+*.txt
+CHANGELOG.md
+Dockerfile
+LICENSE
+Makefile
+README.md
+VERSION
+build
+circle.yml
+logo.png
+nsrl/.DS_Store
+release
