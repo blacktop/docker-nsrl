@@ -12,6 +12,7 @@ dependencies:
     - docker info
     - if [[ -e ~/docker/image.tar ]]; then docker load --input ~/docker/image.tar; fi
     - docker build -t blacktop_nsrl .
+      timeout: 1200
     - mkdir -p ~/docker; docker save blacktop_nsrl > ~/docker/image.tar
 
 test:
